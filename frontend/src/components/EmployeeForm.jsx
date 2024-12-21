@@ -34,7 +34,7 @@ const EmployeeForm = () => {
 
   const onSubmit = async (formData) => {
     try {
-      const response = await axios.post('http://backend:5000/api/employees', formData);
+      const response = await axios.post('http://localhost:5000/api/employees', formData);
       console.log('Response:', response);
     } catch (error) {
       console.error('Error during API call:', error);
