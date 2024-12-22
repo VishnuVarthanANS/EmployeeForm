@@ -1,15 +1,9 @@
-FROM node:22
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-
+FROM node:18
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-
 COPY . .
-
+RUN npm install -g prisma@6.1.0
 RUN npx prisma generate
-
 EXPOSE 5000
-
-CMD ["node", "src/server.js"]
+CMD ["npm","start"]
