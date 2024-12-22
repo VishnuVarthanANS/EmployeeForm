@@ -6,10 +6,8 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 const app = express();
 
-app.use(cors({
-  origin: 'https://employee-form-vn4z.vercel.app/',
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}/*{
+app.use(cors(
+/*{
   origin: 'http://localhost:5173', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
