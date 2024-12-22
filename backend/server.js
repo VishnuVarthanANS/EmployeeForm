@@ -2,20 +2,20 @@ import express from "express";
 import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import { z } from "zod";
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const prisma = new PrismaClient();
 const app = express();
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
-
 app.use(cors({
-  origin: FRONTEND_URL, 
+  origin: 'https://employee-form-vn4z.vercel.app/',
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true, 
-}));
+}/*{
+  origin: 'http://localhost:5173', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}*/));
+
 
 
 app.use(express.json());
@@ -63,4 +63,4 @@ app.post("/api/employees", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log('Server running on http://localhost:${PORT}'));  
